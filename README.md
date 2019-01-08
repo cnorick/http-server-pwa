@@ -76,7 +76,7 @@ Path to serve.
 | Name | CLI flag | Type | Default | Description |
 |------|--------------|------|---------|-------------|
 | port | p | `number` | `8080` | Port to use for running the server. |
-| host | h | `string` | `localhost` | Host to use for running the server. |
+| host | h | `string` | `0.0.0.0` | Host to use for running the server. |
 | fallback | f | `string` | `index.html` | Fallback HTML file name. |
 | https | s | `boolean` | `false` | Enable HTTPS redirect on `localhost`.|
 | ssl |  | `boolean` | `false` | Enable `devcert` auto-generation of SSL certification for development.|

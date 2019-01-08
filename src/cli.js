@@ -31,7 +31,7 @@ const cli = meow(`
 
 	Options
 		-p --port       Port to use [Default: 8080]
-		-h --host       Host to use [Default: localhost | Windows: 127.0.0.1]
+		-h --host       Host to use [Default: 0.0.0.0 | Windows: 127.0.0.1]
 		-f --fallback   Fallback HTML file name [Default: index.html]
 		-s --https      Enable HTTPS redirect on localhost [Default: false]
 		--ssl           Auto-generation SSL certificate during development [Default: false]
