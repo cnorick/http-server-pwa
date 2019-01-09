@@ -1,7 +1,8 @@
 'use strict';
 
 const {resolve, join} = require('path');
-const {createServer} = require('https');
+const {createServer: http} = require('http');
+const {createServer: https} = require('https');
 const express = require('express');
 const fallback = require('express-history-api-fallback');
 const {redirectToHTTPS} = require('express-http-to-https');
@@ -41,7 +42,7 @@ module.exports = async (folder, options) => {
 		await certificate.default('pwa-server', {installCertutil: true}) : null;
 
 	return new Promise(resolve => {
-		const server = sslCert ? createServer(sslCert, app) : app;
+		const server = sslCert ? https(sslCert, app) : http(app);
 		const res = server.listen(
 			PORT,
 			HOST,
