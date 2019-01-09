@@ -35,7 +35,7 @@ module.exports = async (folder, options) => {
 
 	app.use(loggerMiddleware(DEBUG));
 	app.use(pupperender.makeMiddleware({debug: DEBUG, useCache: CACHE, cacheTTL: CACHE_TTL}));
-	app.use(express.static(ROOT));
+	// app.use(express.static(ROOT));
 	// app.use(fallback(FALLINDEX, {root: ROOT}));
 
 	const sslCert = SSL && IS_DEV ?
