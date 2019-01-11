@@ -4,7 +4,7 @@ const {resolve, join} = require('path');
 const {createServer: http} = require('http');
 const {createServer: https} = require('https');
 const express = require('express');
-const fallback = require('express-histkory-api-fallback');
+const fallback = require('express-history-api-fallback');
 // const {redirectToHTTPS} = require('express-http-to-https');
 const certificate = require('devcert-san');
 
