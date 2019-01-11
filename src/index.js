@@ -4,7 +4,7 @@ const {resolve, join} = require('path');
 const {createServer: http} = require('http');
 const {createServer: https} = require('https');
 const express = require('express');
-// const fallback = require('express-histkory-api-fallback');
+const fallback = require('express-histkory-api-fallback');
 // const {redirectToHTTPS} = require('express-http-to-https');
 const certificate = require('devcert-san');
 
@@ -35,8 +35,8 @@ module.exports = async (folder, options) => {
 
 	app.use(loggerMiddleware(DEBUG));
 	app.use(pupperender.makeMiddleware({debug: DEBUG, useCache: CACHE, cacheTTL: CACHE_TTL}));
-	// app.use(express.static(ROOT));
-	// app.use(fallback(FALLINDEX, {root: ROOT}));
+	app.use(express.static(ROOT));
+	app.use(fallback(FALLINDEX, {root: ROOT}));
 
 	const sslCert = SSL && IS_DEV ?
 		await certificate.default('pwa-server', {installCertutil: true}) : null;
