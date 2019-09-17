@@ -37,7 +37,7 @@ module.exports = async (folder, options) => {
 	app.use(express.static(ROOT));
 	app.use(fallback(FALLINDEX, {root: ROOT}));
 
-	const sslCert = SSL && IS_DEV ?
+	const sslCert = SSL ?
 		await certificate.default('pwa-server', {installCertutil: true}) : null;
 
 	return new Promise(resolve => {
@@ -47,6 +47,7 @@ module.exports = async (folder, options) => {
 			HOST,
 			() => {
 				log.green('HSP started 🤘');
+				log.green('Nathan Version');
 				log.info(
 					`Path: ${ROOT} \nHost: ${sslCert ? 'https' : 'http'}://${HOST}:${PORT} \nFalling on: ${join(ROOT, FALLINDEX)}`
 				);
